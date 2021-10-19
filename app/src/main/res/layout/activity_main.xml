@@ -25,12 +25,12 @@
             app:layout_constraintTop_toBottomOf="@+id/tvRegistro">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="E-mail"
-                android:inputType="textEmailAddress"
 
-                />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -66,7 +66,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:background="@drawable/botones_redondos"
+
             android:id="@+id/bttSiguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tilContraseña" />
 
         <Button
-            android:background="@drawable/botones_redondos"
+
             android:id="@+id/bttSign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

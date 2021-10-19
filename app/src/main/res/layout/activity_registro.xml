@@ -81,10 +81,11 @@
         tools:layout_editor_absoluteX="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -125,7 +126,6 @@
             android:layout_width="189dp"
             android:layout_height="51dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/botones_redondos"
             android:text="Confirmar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
