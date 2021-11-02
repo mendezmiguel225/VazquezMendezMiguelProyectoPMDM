@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/vazmenmig/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable-v24/botones_redondos.xml" value="0.13518518518518519" />
+        <entry key="..\:/Users/vazmenmig/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_lista_peliculas.xml" value="0.33" />
         <entry key="..\:/Users/vazmenmig/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_log_in.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/vazmenmig/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/vazmenmig/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_registro.xml" value="0.1" />
+        <entry key="..\:/Users/vazmenmig/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/item_lista_peliculas.xml" value="0.33" />
       </map>
     </option>
   </component>

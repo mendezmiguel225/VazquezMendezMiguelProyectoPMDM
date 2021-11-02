@@ -1,11 +1,10 @@
-package es.murallaromana.MiguelVazquezpmdm.proyecto
+package es.murallaromana.MiguelVazquezpmdm.proyecto.activities
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
+import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 
 class Registro : AppCompatActivity() {
     //var sharedPref = getPreferences(MODE_PRIVATE)
