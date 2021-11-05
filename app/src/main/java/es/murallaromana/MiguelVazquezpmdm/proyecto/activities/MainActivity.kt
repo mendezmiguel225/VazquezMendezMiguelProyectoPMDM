@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         bttSiguiente.setOnClickListener {
-
+            val intent= Intent(this,ListaPeliculas::class.java )
+            startActivity(intent)
         }
 
 
