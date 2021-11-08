@@ -22,7 +22,7 @@ class ListaPeliculas : AppCompatActivity() {
         val listaPeliculas=peliculasDao.getTodos()
 
         val layoutManager = LinearLayoutManager(this)
-        val adapter = ListaPeliculasAdapter(listaPeliculas,ListaPeliculas())
+        val adapter = ListaPeliculasAdapter(listaPeliculas,this)
         binding.rvListaPeliculas.adapter=adapter
         binding.rvListaPeliculas.layoutManager=layoutManager
         val dividerItemDecoration = DividerItemDecoration(
