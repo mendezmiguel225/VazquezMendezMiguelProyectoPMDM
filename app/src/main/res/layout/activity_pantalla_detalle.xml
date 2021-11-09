@@ -1,10 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".activities.PantallaDetalle">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:id="@+id/tvDetalleNumero2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/margen_Detalle_textView"
+      android:layout_marginTop="@dimen/margen_Detalle_textView"
+      android:text="TextView"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleValoracion2" />
+
+  <TextView
+      android:id="@+id/tvDetalleGenero2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="20dp"
+      android:text="TextView"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleTitulo2" />
+
+  <TextView
+      android:id="@+id/tvDetalleDirector2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="20dp"
+      android:text="TextView"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleGenero2" />
+
+  <TextView
+      android:id="@+id/tvDetalleValoracion2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/margen_Detalle_textView"
+      android:layout_marginTop="@dimen/margen_Detalle_textView"
+      android:text="TextView"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleDirector2" />
+
+  <ImageView
+      android:id="@+id/ivImagen"
+      android:layout_width="200dp"
+      android:layout_height="200dp"
+      android:layout_marginStart="50dp"
+      android:layout_marginTop="50dp"
+      android:layout_marginEnd="50dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <TextView
+      android:id="@+id/tvDetalleTitulo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="50dp"
+      android:layout_marginEnd="@dimen/margen_Detalle_textView"
+      android:text="TÍtulo: "
+      app:layout_constraintEnd_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/ivImagen" />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline7"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.5" />
+
+  <TextView
+      android:id="@+id/tvDetalleTitulo2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/margen_Detalle_textView"
+      android:layout_marginTop="50dp"
+      android:text="TextView"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/ivImagen" />
+
+  <TextView
+      android:id="@+id/tvDetalleGenero"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margen_Detalle_textView"
+      android:layout_marginEnd="@dimen/margen_Detalle_textView"
+      android:text="Género: "
+      app:layout_constraintEnd_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleTitulo" />
+
+  <TextView
+      android:id="@+id/tvDetalleDirector"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margen_Detalle_textView"
+      android:layout_marginEnd="@dimen/margen_Detalle_textView"
+      android:text="Director: "
+      app:layout_constraintEnd_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleGenero" />
+
+  <TextView
+      android:id="@+id/tvDetalleValoracion"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margen_Detalle_textView"
+      android:layout_marginEnd="@dimen/margen_Detalle_textView"
+      android:text="Valoración: "
+      app:layout_constraintEnd_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleDirector" />
+
+  <TextView
+      android:id="@+id/tvDetalleNumero"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margen_Detalle_textView"
+      android:layout_marginEnd="@dimen/margen_Detalle_textView"
+      android:text="Número del director"
+      app:layout_constraintEnd_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleValoracion" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

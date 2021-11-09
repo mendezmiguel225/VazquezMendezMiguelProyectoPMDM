@@ -117,7 +117,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/hint_introducir_contrasenha"
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 

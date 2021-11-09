@@ -13,7 +13,11 @@
         android:theme="@style/Theme.VazquezMendezMiguelProyectoPMDM" >
         <activity
             android:name=".activities.PantallaDetalle"
-            android:exported="true" />
+            android:exported="true" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ListaPeliculas" />
+        </activity>
         <activity
             android:name=".activities.ListaPeliculas"
             android:exported="true" />
