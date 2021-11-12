@@ -2,6 +2,7 @@ package es.murallaromana.MiguelVazquezpmdm.proyecto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
@@ -30,8 +31,9 @@ class ListaPeliculas : AppCompatActivity() {
             layoutManager.orientation
         )
         binding.rvListaPeliculas.addItemDecoration(dividerItemDecoration)
+        binding.fabEngadir.setOnClickListener {
 
-        binding.rvListaPeliculas.setHasFixedSize(true)
+        }
 
     }
 }

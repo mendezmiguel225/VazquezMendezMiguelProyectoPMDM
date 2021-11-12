@@ -15,7 +15,7 @@ import es.murallaromana.MiguelVazquezpmdm.proyecto.activities.ListaPeliculas
 import es.murallaromana.MiguelVazquezpmdm.proyecto.activities.PantallaDetalle
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Pelicula
 
-class ListaPeliculasAdapter (val peliculas:List<Pelicula>,val activity:Activity): RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>(){
+class ListaPeliculasAdapter (val peliculas:MutableList<Pelicula>,val activity:Activity): RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
        val layoutInflater=LayoutInflater.from(parent.context).inflate(R.layout.item_lista_peliculas,parent,false)
        return PeliculasViewHolder(layoutInflater)
