@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 import es.murallaromana.MiguelVazquezpmdm.proyecto.adapters.ListaPeliculasAdapter
@@ -22,7 +23,7 @@ class ListaPeliculas : AppCompatActivity() {
         val peliculasDao=PeliculasDaoMock()
         val listaPeliculas=peliculasDao.getTodos()
 
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = GridLayoutManager(this,2)
         val adapter = ListaPeliculasAdapter(listaPeliculas,this)
         binding.rvListaPeliculas.adapter=adapter
         binding.rvListaPeliculas.layoutManager=layoutManager
@@ -30,7 +31,7 @@ class ListaPeliculas : AppCompatActivity() {
             binding.rvListaPeliculas.context,
             layoutManager.orientation
         )
-        binding.rvListaPeliculas.addItemDecoration(dividerItemDecoration)
+
         binding.fabEngadir.setOnClickListener {
 
         }

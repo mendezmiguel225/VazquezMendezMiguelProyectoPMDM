@@ -28,10 +28,10 @@ class ListaPeliculasAdapter (val peliculas:MutableList<Pelicula>,val activity:Ac
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
         val pelicula= peliculas.get(position)
-        holder.tvTitulo.setText(pelicula.titulo)
-        holder.tvGenero.setText(pelicula.genero)
-        holder.tvDirector.setText(pelicula.director)
-        holder.tvValoracion.setText(pelicula.valoracion)
+        //holder.tvTitulo.setText(pelicula.titulo)
+        //holder.tvGenero.setText(pelicula.genero)
+        //holder.tvDirector.setText(pelicula.director)
+        //holder.tvValoracion.setText(pelicula.valoracion)
         Picasso.get().load(pelicula.url).into(holder.ivFoto)
         holder.clItemPelicula.setOnClickListener {
             val intent= Intent(activity, PantallaDetalle::class.java)
@@ -42,10 +42,10 @@ class ListaPeliculasAdapter (val peliculas:MutableList<Pelicula>,val activity:Ac
 
     }
     class PeliculasViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val tvTitulo= itemView.findViewById<TextView>(R.id.tvTitulo)
-        val tvGenero= itemView.findViewById<TextView>(R.id.tvGenero)
-        val tvDirector= itemView.findViewById<TextView>(R.id.tvDirector)
-        val tvValoracion= itemView.findViewById<TextView>(R.id.tvValoracion)
+       // val tvTitulo= itemView.findViewById<TextView>(R.id.tvTitulo)
+        //val tvGenero= itemView.findViewById<TextView>(R.id.tvGenero)
+        //val tvDirector= itemView.findViewById<TextView>(R.id.tvDirector)
+        //val tvValoracion= itemView.findViewById<TextView>(R.id.tvValoracion)
         val ivFoto = itemView.findViewById<ImageView>(R.id.ivFoto)
         val clItemPelicula=itemView.findViewById<ConstraintLayout>(R.id.clItemPelicula)
     }
