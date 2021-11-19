@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <application
 
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Lista de películas"
@@ -13,25 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VazquezMendezMiguelProyectoPMDM" >
         <activity
-            android:name=".activities.PantallaDetalle"
-            android:exported="true" >
+            android:name=".activities.PantallaDetalleActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.ListaPeliculas" />
+                android:value=".activities.ListaPeliculasActivity" />
         </activity>
         <activity
-            android:name=".activities.ListaPeliculas"
-            android:exported="true" />
+            android:name=".activities.ListaPeliculasActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".activities.Registro"
-            android:exported="true" >
+            android:name=".activities.RegistroActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

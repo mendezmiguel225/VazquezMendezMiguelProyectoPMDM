@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvRegistro">
+            app:layout_constraintTop_toBottomOf="@+id/tvEntrar">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiEmail"
@@ -34,11 +34,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/tvRegistro"
+            android:id="@+id/tvEntrar"
             android:layout_width="103dp"
             android:layout_height="37dp"
             android:layout_marginTop="16dp"
-            android:text="Log in"
+            android:text="@string/login"
             android:textAlignment="center"
             android:textSize="19dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Sign Up"
+            android:text="@string/registro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.536"
             app:layout_constraintStart_toStartOf="@+id/guideline2"

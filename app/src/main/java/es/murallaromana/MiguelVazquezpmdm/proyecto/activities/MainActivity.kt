@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTitle("Login")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         binding= ActivityMainBinding.inflate(layoutInflater)
@@ -22,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         bttSign =binding.bttSign
         bttSiguiente=binding.bttSiguiente
         bttSign.setOnClickListener {
-            val intent = Intent(this, Registro::class.java)
+            val intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
         }
         bttSiguiente.setOnClickListener {
-            val intent= Intent(this,ListaPeliculas::class.java )
+            val intent= Intent(this,ListaPeliculasActivity::class.java )
             startActivity(intent)
         }
 

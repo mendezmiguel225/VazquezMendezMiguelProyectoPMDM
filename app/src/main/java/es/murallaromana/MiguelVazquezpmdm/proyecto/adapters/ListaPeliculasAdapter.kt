@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
-import es.murallaromana.MiguelVazquezpmdm.proyecto.activities.ListaPeliculas
-import es.murallaromana.MiguelVazquezpmdm.proyecto.activities.PantallaDetalle
+import es.murallaromana.MiguelVazquezpmdm.proyecto.activities.PantallaDetalleActivity
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Pelicula
 
 class ListaPeliculasAdapter (val peliculas:MutableList<Pelicula>,val activity:Activity): RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>(){
@@ -34,7 +32,7 @@ class ListaPeliculasAdapter (val peliculas:MutableList<Pelicula>,val activity:Ac
         //holder.tvValoracion.setText(pelicula.valoracion)
         Picasso.get().load(pelicula.url).into(holder.ivFoto)
         holder.clItemPelicula.setOnClickListener {
-            val intent= Intent(activity, PantallaDetalle::class.java)
+            val intent= Intent(activity, PantallaDetalleActivity::class.java)
             intent.putExtra("pelicula",pelicula )
             activity.startActivity(intent)
         }

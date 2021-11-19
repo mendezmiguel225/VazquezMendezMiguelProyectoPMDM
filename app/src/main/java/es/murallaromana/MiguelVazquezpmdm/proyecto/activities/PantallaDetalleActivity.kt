@@ -8,7 +8,7 @@ import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityPantallaDetalleBinding
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Pelicula
 
-class PantallaDetalle : AppCompatActivity() {
+class PantallaDetalleActivity : AppCompatActivity() {
     lateinit var binding: ActivityPantallaDetalleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +18,7 @@ class PantallaDetalle : AppCompatActivity() {
         binding = ActivityPantallaDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
         p as Pelicula
+        setTitle(p.titulo)
         Picasso.get().load(p.url).into(binding.ivImagen)
         binding.tvDetalleGenero2.setText(p.genero)
         binding.tvDetalleDirector2.setText(p.director)

@@ -12,10 +12,11 @@ import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityListaPeli
 import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityMainBinding
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.dao.PeliculasDaoMock
 
-class ListaPeliculas : AppCompatActivity() {
+class ListaPeliculasActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListaPeliculasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTitle("Lista de películas")
         super.onCreate(savedInstanceState)
        binding = ActivityListaPeliculasBinding.inflate(layoutInflater)
         setContentView(binding.root)
