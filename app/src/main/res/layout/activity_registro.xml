@@ -48,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtRegistro">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre" />
@@ -64,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tilNombre">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiNombreUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre de usuario" />
@@ -99,6 +101,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Teléfono" />

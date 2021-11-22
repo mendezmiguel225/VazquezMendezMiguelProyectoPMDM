@@ -79,7 +79,7 @@
 
         <Button
 
-            android:id="@+id/bttSign"
+            android:id="@+id/bttRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
