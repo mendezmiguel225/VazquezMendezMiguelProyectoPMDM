@@ -25,6 +25,6 @@ class PantallaDetalleActivity : AppCompatActivity() {
         binding.tvDetalleTitulo2.setText(p.titulo)
         binding.tvDetalleValoracion2.setText(p.valoracion)
         binding.tvDetalleNumero2.setText(p.numeroDirector)
-        binding.tvDetalleNumero
+
     }
 }

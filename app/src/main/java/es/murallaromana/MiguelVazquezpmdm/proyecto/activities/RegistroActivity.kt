@@ -27,22 +27,22 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(binding.root)
         val pattern = Patterns.EMAIL_ADDRESS
         binding.bttConfirmar.setOnClickListener {
-            if (binding.tiTelefono.text.toString() == "" || binding.tiContrasenha.text.toString() == "" ||
-                binding.tiCorreo.text.toString() == "" || binding.tiNombre.text.toString() == ""
-                || binding.tiNombreUs.toString() == ""
+            if (binding.tiTelefono.text.toString().trim() == "" || binding.tiContrasenha.text.toString().trim() == "" ||
+                binding.tiCorreo.text.toString().trim() == "" || binding.tiNombre.text.toString().trim() == ""
+                || binding.tiNombreUs.toString().trim() == ""
             ) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else if (pattern.matcher(binding.tiCorreo.text.toString()).matches() == false) {
+            } else if (pattern.matcher(binding.tiCorreo.text.toString().trim()).matches() == false) {
                 Toast.makeText(this, "Email no válido", Toast.LENGTH_SHORT).show()
-            } else if (binding.tiContrasenha.text.toString().length > 8 ||
-                binding.tiContrasenha.text.toString().length < 5
+            } else if (binding.tiContrasenha.text.toString().trim().length > 8 ||
+                binding.tiContrasenha.text.toString().trim().length < 5
             ) {
                 Toast.makeText(this, "La contraseña debe tener entre 5 y 8 caracteres", Toast.LENGTH_SHORT).show()
             }else{
                 var sharedPref = getSharedPreferences("datos", Context.MODE_PRIVATE)
                 var editor = sharedPref.edit()
-                editor.putString("email", binding.tiCorreo.text.toString())
-                editor.putString("contraseña", binding.tiContrasenha.text.toString()).commit()
+                editor.putString("email", binding.tiCorreo.text.toString().trim())
+                editor.putString("contraseña", binding.tiContrasenha.text.toString().trim()).commit()
                 onBackPressed()
             }
 

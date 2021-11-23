@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setTitle("Login")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -30,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             val sharedPref: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
             val contra = sharedPref.getString("contraseña","datos")
             val email = sharedPref.getString("email","datos")
-            if (email != binding.tiEmail.text.toString()) {
+            if (email != binding.tiEmail.text.toString().trim()) {
                 Toast.makeText(this, "Email incorrecto", Toast.LENGTH_SHORT).show()
-            } else if (contra != binding.tiContrasenha.text.toString()) {
+            } else if (contra != binding.tiContrasenha.text.toString().trim()) {
                 Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, ListaPeliculasActivity::class.java)

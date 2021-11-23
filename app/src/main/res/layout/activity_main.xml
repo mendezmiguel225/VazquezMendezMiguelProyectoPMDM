@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    >
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+
+        >
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
@@ -18,11 +24,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="30dp"
+            android:padding="16dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEntrar">
+            app:layout_constraintTop_toBottomOf="@+id/tvEntrar"
+            app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiEmail"
@@ -37,32 +45,32 @@
             android:id="@+id/tvEntrar"
             android:layout_width="103dp"
             android:layout_height="37dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/login"
             android:textAlignment="center"
             android:textSize="19dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilContraseña"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline3">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiContrasenha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/hint_introducir_contrasenha"
-                android:inputType="textPassword"
 
-                />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -102,5 +110,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/white" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

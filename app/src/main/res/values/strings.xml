@@ -3,4 +3,6 @@
     <string name="hint_introducir_contrasenha">Contraseña</string>
     <string name="registro">Registro</string>
     <string name="login">Login</string>
+    <string name="borrar">borrar</string>
+    <string name="editar">editar</string>
 </resources>
