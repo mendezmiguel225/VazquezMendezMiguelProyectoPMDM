@@ -9,23 +9,23 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import es.murallaromana.MiguelVazquezpmdm.proyecto.MiApp
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 import es.murallaromana.MiguelVazquezpmdm.proyecto.activities.PantallaDetalleActivity
-import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Pelicula
 
-class ListaPeliculasAdapter (val peliculas:MutableList<Pelicula>,val activity:Activity): RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>(){
+class ListaPeliculasAdapter (val activity:Activity): RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
        val layoutInflater=LayoutInflater.from(parent.context).inflate(R.layout.item_lista_peliculas,parent,false)
        return PeliculasViewHolder(layoutInflater)
     }
 
 
-    override fun getItemCount()=peliculas.size
+    override fun getItemCount()=MiApp.peliculas.size
 
 
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
-        val pelicula= peliculas.get(position)
+        val pelicula= MiApp.peliculas.get(position)
         //holder.tvTitulo.setText(pelicula.titulo)
         //holder.tvGenero.setText(pelicula.genero)
         //holder.tvDirector.setText(pelicula.director)

@@ -3,5 +3,5 @@ package es.murallaromana.MiguelVazquezpmdm.proyecto.model.dao
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Pelicula
 
 interface PeliculasDao {
-    fun getTodos():MutableList<Pelicula>
+    fun getTodos():List<Pelicula>
 }

@@ -3,6 +3,7 @@ package es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades
 import java.io.Serializable
 
 class Pelicula (
+    var indice:Int,
     var titulo :String,
     var director : String,
     var genero: String,
