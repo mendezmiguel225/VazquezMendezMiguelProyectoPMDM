@@ -42,7 +42,7 @@ class PantallaDetalleActivity : AppCompatActivity() {
             binding.etDetalleNumero2.isEnabled = false
             binding.bttCorrecto.isVisible = false
             binding.bttAtras.isVisible = false
-
+            binding.ivImagen.isVisible = true
         }
         binding.bttCorrecto.setOnClickListener() {
             if (binding.etDetalleGenero2.text.toString()
