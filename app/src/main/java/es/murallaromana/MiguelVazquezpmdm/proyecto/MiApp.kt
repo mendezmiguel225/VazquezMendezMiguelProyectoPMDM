@@ -11,7 +11,6 @@ class MiApp : Application() {
 
     companion object {
         var peliculas= ArrayList<Pelicula>()
-        fun borrarPelicula(indice:Int)= peliculas.removeAt(indice)
         fun crearPelicula(pelicula: Pelicula)=peliculas.add(pelicula)
         fun actualizarIndice(){
             var i=0

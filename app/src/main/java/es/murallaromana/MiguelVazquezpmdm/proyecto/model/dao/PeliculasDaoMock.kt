@@ -13,7 +13,7 @@ class PeliculasDaoMock : PeliculasDao {
             "Chloe Zhao",
             "Acción",
             "7,5",
-            "http://www.espaciomarvelita.com/wp-content/uploads/2019/07/xEternals-Dolby-Cinema.jpg.pagespeed.ic.5LfKUaet8S.webp",
+            "https://www.espaciomarvelita.com/wp-content/uploads/2019/07/xEternals-Dolby-Cinema.jpg.pagespeed.ic.5LfKUaet8S.webp",
             "22222"
         ),
         Pelicula(
@@ -22,7 +22,7 @@ class PeliculasDaoMock : PeliculasDao {
             "Cate Shortland",
             "Acción",
             "7,7",
-            "http://www.themoviedb.org/t/p/w600_and_h900_bestv2/oggEsESyLjVGD7jbIdBfa2hFUrx.jpg",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oggEsESyLjVGD7jbIdBfa2hFUrx.jpg",
             "2222"
         ),
         Pelicula(
