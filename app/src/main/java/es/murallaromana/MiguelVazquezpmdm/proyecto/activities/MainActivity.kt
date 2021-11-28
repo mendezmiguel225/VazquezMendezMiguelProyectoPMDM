@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         }
         binding.bttSiguiente.setOnClickListener {
             val sharedPref: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
-            val contra = sharedPref.getString("datos","datos")
-            val email = sharedPref.getString("datos","datos")
+            val contra = sharedPref.getString("contraseña","datos")
+            val email = sharedPref.getString("email","datos")
             if (email != binding.tiEmail.text.toString().trim()) {
                 Toast.makeText(this, "Email incorrecto", Toast.LENGTH_SHORT).show()
             } else if (contra != binding.tiContrasenha.text.toString().trim()) {

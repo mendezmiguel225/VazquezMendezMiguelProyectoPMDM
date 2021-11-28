@@ -8,14 +8,39 @@
     tools:context=".activities.PantallaDetalleActivity"
     >
 
+  <Button
+      android:id="@+id/bttAtras"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Cancelar"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/guideline11"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvDetalleNumero" />
+
+  <Button
+      android:id="@+id/bttCorrecto"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+      android:text="Confirmar"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toBottomOf="@+id/bttAtras"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.414"
+      app:layout_constraintStart_toStartOf="@+id/guideline11"
+      app:layout_constraintTop_toTopOf="@+id/bttAtras"
+      app:layout_constraintVertical_bias="0.0" />
+
   <EditText
       android:id="@+id/etDetalleNumero2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/margen_Detalle_textView"
       android:layout_marginTop="@dimen/margen_Detalle_textView"
-      android:text="EditText"
       android:enabled="false"
+      android:text="EditText"
+      android:textSize="16dp"
       app:layout_constraintStart_toStartOf="@+id/guideline7"
       app:layout_constraintTop_toBottomOf="@+id/etDetalleValoracion2" />
 
@@ -23,10 +48,10 @@
       android:id="@+id/etDetalleGenero2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
       android:layout_marginTop="20dp"
-      android:text="TextView"
       android:enabled="false"
+      android:textSize="16dp"
+      android:text="TextView"
       app:layout_constraintStart_toStartOf="@+id/guideline7"
       app:layout_constraintTop_toBottomOf="@+id/etDetalleTitulo2" />
 
@@ -34,10 +59,9 @@
       android:id="@+id/etDetalleDirector2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
       android:layout_marginTop="20dp"
-      android:text="TextView"
       android:enabled="false"
+      android:text="TextView"
       app:layout_constraintStart_toStartOf="@+id/guideline7"
       app:layout_constraintTop_toBottomOf="@+id/etDetalleGenero2" />
 
@@ -45,22 +69,30 @@
       android:id="@+id/etDetalleValoracion2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/margen_Detalle_textView"
       android:layout_marginTop="@dimen/margen_Detalle_textView"
-      android:text="TextView"
       android:enabled="false"
+      android:text="TextView"
+      android:textSize="16dp"
       app:layout_constraintStart_toStartOf="@+id/guideline7"
       app:layout_constraintTop_toBottomOf="@+id/etDetalleDirector2" />
 
+  <EditText
+      android:id="@+id/etDetalleTitulo2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="50dp"
+      android:enabled="false"
+      android:textSize="16dp"
+      android:text="TextView"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/ivImagen" />
+
   <ImageView
       android:id="@+id/ivImagen"
-      android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:layout_marginStart="50dp"
-      android:layout_marginTop="50dp"
-      android:layout_marginEnd="50dp"
+      android:layout_width="379dp"
+      android:layout_height="275dp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintHorizontal_bias="0.968"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:srcCompat="@tools:sample/avatars" />
@@ -70,37 +102,18 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="TÍtulo: "
+      android:textSize="16dp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleTitulo2"
-      app:layout_constraintEnd_toStartOf="@+id/guideline7"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleTitulo2" />
-
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline7"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_percent="0.5" />
-
-  <EditText
-      android:id="@+id/etDetalleTitulo2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/margen_Detalle_textView"
-      android:layout_marginTop="50dp"
-      android:text="TextView"
-
-      android:enabled="false"
-      app:layout_constraintStart_toStartOf="@+id/guideline7"
-      app:layout_constraintTop_toBottomOf="@+id/ivImagen" />
 
   <TextView
       android:id="@+id/tvDetalleGenero"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Género: "
+      android:textSize="16dp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleGenero2"
-      app:layout_constraintEnd_toStartOf="@+id/guideline7"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleGenero2" />
 
@@ -109,8 +122,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Director: "
+      android:textSize="16dp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleDirector2"
-      app:layout_constraintEnd_toStartOf="@+id/guideline7"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleDirector2"
       app:layout_constraintVertical_bias="0.384" />
@@ -120,8 +133,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Valoración: "
+      android:textSize="16dp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleValoracion2"
-      app:layout_constraintEnd_toStartOf="@+id/guideline7"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleValoracion2" />
 
@@ -130,32 +143,24 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Número del director"
+      android:textSize="16dp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleNumero2"
-      app:layout_constraintEnd_toStartOf="@+id/guideline7"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleNumero2" />
 
-  <Button
-      android:id="@+id/bttAtras"
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline7"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Cancelar"
-      android:visibility="invisible"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/guideline7"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvDetalleNumero" />
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.4" />
 
-  <Button
-      android:id="@+id/bttCorrecto"
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline11"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Confirmar"
-      android:visibility="invisible"
-      app:layout_constraintBottom_toBottomOf="@+id/bttAtras"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="@+id/guideline7"
-      app:layout_constraintTop_toTopOf="@+id/bttAtras" />
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

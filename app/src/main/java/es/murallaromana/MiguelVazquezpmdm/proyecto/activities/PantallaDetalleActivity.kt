@@ -1,6 +1,7 @@
 package es.murallaromana.MiguelVazquezpmdm.proyecto.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -33,7 +34,14 @@ class PantallaDetalleActivity : AppCompatActivity() {
         binding.etDetalleValoracion2.setText(p.valoracion)
         binding.etDetalleNumero2.setText(p.numeroDirector)
 
+        binding.tvDetalleNumero.setOnClickListener() {
+            if(binding.etDetalleNumero2.isEnabled==false){
+                var i =  Intent(Intent.ACTION_CALL)
+                i.setData(Uri.parse("tel:"+binding.etDetalleNumero2.text.toString().trim()))
+                startActivity(i)
+            }
 
+        }
         binding.bttAtras.setOnClickListener() {
             binding.etDetalleGenero2.isEnabled = false
             binding.etDetalleDirector2.isEnabled = false

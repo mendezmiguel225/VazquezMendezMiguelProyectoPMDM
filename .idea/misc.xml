@@ -3,14 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable-v24/button_bg.xml" value="0.1" />
+        <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable-v24/ctr_bg.xml" value="0.1" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable-v24/layout_bg.xml" value="0.1" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable/ic_baseline_add_25.xml" value="0.2703125" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2703125" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_lista_peliculas.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_nueva_pelicula.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_pantalla_detalle.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_pantalla_detalle.xml" value="0.264" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/activity_registro.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/layout/item_lista_peliculas.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mende/AndroidStudioProjects/VazquezMendezMiguelProyectoPMDM/app/src/main/res/menu/menu_toolbar_botones.xml" value="0.25416666666666665" />
