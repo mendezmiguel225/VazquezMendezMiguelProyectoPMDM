@@ -1,25 +1,25 @@
 # VazquezMendezMiguelProyectoPMDM
 
-##Contenido de la aplicación
+## Contenido de la aplicación
 
--Login
--Registro
--Lista de películas
--Detalle y edición de las películas
--Creación de peliculas
-
-
-##Login
+- Login
+- Registro
+- Lista de películas
+- Detalle y edición de las películas
+- Creación de peliculas
 
 
-##Registro
+## Login
 
 
-##Lista de películas
+## Registro
 
 
-##Detalle y edición de las películas
+## Lista de películas
+
+
+## Detalle y edición de las películas
 
 
 
-##Creación de peliculas
+## Creación de peliculas
