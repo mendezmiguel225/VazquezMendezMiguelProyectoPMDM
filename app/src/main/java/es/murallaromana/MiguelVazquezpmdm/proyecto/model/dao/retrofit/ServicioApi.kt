@@ -17,4 +17,7 @@ interface ServicioApi {
 
     @POST("users/login")
     fun login(@Body user: User): Call<Token>
+
+    @POST("users/signup")
+    fun signUp(@Body user: User):Call<Unit>
 }

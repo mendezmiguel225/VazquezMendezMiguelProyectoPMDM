@@ -4,9 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import es.murallaromana.MiguelVazquezpmdm.proyecto.MiApp
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 import es.murallaromana.MiguelVazquezpmdm.proyecto.adapters.ListaPeliculasAdapter
 import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityListaPeliculasBinding
@@ -44,4 +49,10 @@ class ListaPeliculasActivity : AppCompatActivity() {
         binding.rvListaPeliculas.layoutManager = layoutManager
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar_deslog, menu)
+        return true
     }
+
+}
+

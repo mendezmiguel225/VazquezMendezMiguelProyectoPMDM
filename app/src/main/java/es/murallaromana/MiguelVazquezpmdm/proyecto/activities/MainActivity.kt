@@ -1,5 +1,6 @@
 package es.murallaromana.MiguelVazquezpmdm.proyecto.activities
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -24,18 +25,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTitle("Login")
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val shared:SharedPreferences=getSharedPreferences("datos", MODE_PRIVATE)
+        val autenticacion = shared.getString("token", "")
+        if(autenticacion!=""){
+          val intent = Intent(this@MainActivity, ListaPeliculasActivity::class.java)
+           startActivity(intent)
+            finish()
+         }else {
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        val u = User("miguel@gmail.com", "1234")
+            setContentView(R.layout.activity_main)
 
-        binding.bttRegistro.setOnClickListener {
-            val intent = Intent(this, RegistroActivity::class.java)
-            startActivity(intent)
-        }
-        binding.bttSiguiente.setOnClickListener {
-            val sharedPref: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
+            binding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+            binding.bttRegistro.setOnClickListener {
+                val intent = Intent(this, RegistroActivity::class.java)
+                startActivity(intent)
+            }
+            val retrofit = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://damapi.herokuapp.com/api/v1/")
+                .build()
+            val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
+            binding.bttSiguiente.setOnClickListener {
+                /*
+            *  val sharedPref: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
             val contra = sharedPref.getString("contraseña", "datos")
             val email = sharedPref.getString("email", "datos")
             if (email != binding.tiEmail.text.toString().trim()) {
@@ -47,28 +61,50 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+            * */
+                val u = User(binding.tiEmail.text.toString(), binding.tiContrasenha.text.toString())
+                val loginCall = servicio.login(u)
+
+                loginCall.enqueue(object : Callback<Token> {
+                    override fun onResponse(call: Call<Token>, response: Response<Token>) {
+                        if (!response.isSuccessful) {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "No se ha podido crear el usuario",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else {
+                            val token = response.body()?.token
+                            Log.d("respuesta: token:", token.orEmpty())
+
+                            Toast.makeText(
+                                this@MainActivity,
+                                "se ha creado el usuario",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                            var sharedPref = getSharedPreferences("datos", Context.MODE_PRIVATE)
+                            var editor = sharedPref.edit()
+                            editor.putString("token", token).commit()
+                            val intent =
+                                Intent(this@MainActivity, ListaPeliculasActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Token>, t: Throwable) {
+                        Log.d("respuesta: onFailure", t.toString())
+
+                    }
+                })
+
+            }
+
 
         }
 
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://damapi.herokuapp.com/api/v1/")
-            .build()
-        val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
-        val loginCall = servicio.login(u)
-
-        loginCall.enqueue(object : Callback<Token> {
-
-
-            override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                Log.d("MainActivity",response.body().toString())
-            }
-
-            override fun onFailure(call: Call<Token>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-
-
-        })
     }
+
 }

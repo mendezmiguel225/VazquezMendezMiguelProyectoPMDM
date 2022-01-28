@@ -3,14 +3,24 @@ package es.murallaromana.MiguelVazquezpmdm.proyecto.activities
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.graphics.toColor
 import com.google.android.material.textfield.TextInputEditText
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityPantallaDetalleBinding
 import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityRegistroBinding
+import es.murallaromana.MiguelVazquezpmdm.proyecto.model.dao.retrofit.ServicioApi
+import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Token
+import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.User
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class RegistroActivity : AppCompatActivity() {
@@ -27,24 +37,45 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(binding.root)
         val pattern = Patterns.EMAIL_ADDRESS
         binding.bttConfirmar.setOnClickListener {
-            if (binding.tiTelefono.text.toString().trim() == "" || binding.tiClave.text.toString().trim() == "" ||
-                binding.tiCorreo.text.toString().trim() == "" || binding.tiNombre.text.toString().trim() == ""
-                || binding.tiNombreUs.toString().trim() == ""
-            ) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else if (pattern.matcher(binding.tiCorreo.text.toString().trim()).matches() == false) {
-                Toast.makeText(this, "Email no válido", Toast.LENGTH_SHORT).show()
-            } else if (binding.tiClave.text.toString().trim().length > 8 ||
-                binding.tiClave.text.toString().trim().length < 5
-            ) {
-                Toast.makeText(this, "La contraseña debe tener entre 5 y 8 caracteres", Toast.LENGTH_SHORT).show()
-            }else{
-                var sharedPref = getSharedPreferences("datos", Context.MODE_PRIVATE)
-                var editor = sharedPref.edit()
-                editor.putString("email", binding.tiCorreo.text.toString().trim())
-                editor.putString("contraseña", binding.tiClave.text.toString().trim()).commit()
-                onBackPressed()
-            }
+            //if (binding.tiTelefono.text.toString().trim() == "" || binding.tiClave.text.toString().trim() == "" ||
+               // binding.tiCorreo.text.toString().trim() == "" || binding.tiNombre.text.toString().trim() == ""
+              //  || binding.tiNombreUs.toString().trim() == ""
+            //) {
+              //  Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            //} else if (pattern.matcher(binding.tiCorreo.text.toString().trim()).matches() == false) {
+              //  Toast.makeText(this, "Email no válido", Toast.LENGTH_SHORT).show()
+            //} else if (binding.tiClave.text.toString().trim().length > 8 ||
+              //  binding.tiClave.text.toString().trim().length < 5
+            //) {
+                //   Toast.makeText(this, "La contraseña debe tener entre 5 y 8 caracteres", Toast.LENGTH_SHORT).show()
+           // }else{
+                val user=User(binding.tiCorreo.text.toString(),binding.tiClave.text.toString())
+
+                val retrofit = Retrofit.Builder()
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl("https://damapi.herokuapp.com/api/v1/")
+                    .build()
+                val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
+                val signUpCall = servicio.signUp(user)
+                signUpCall.enqueue(object : Callback<Unit>{
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        Log.d("respuesta: onFailure", t.toString())
+                    }
+
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                        if(!response.isSuccessful){
+                            Toast.makeText(this@RegistroActivity, "No se pudo crear el usuario", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this@RegistroActivity, "Usuario creado",Toast.LENGTH_SHORT).show()
+                            onBackPressed()
+                        }
+                    }
+                })
+                //var sharedPref = getSharedPreferences("datos", Context.MODE_PRIVATE)
+                //var editor = sharedPref.edit()
+                //editor.putString("email", binding.tiCorreo.text.toString().trim())
+                //editor.putString("contraseña", binding.tiClave.text.toString().trim()).commit()
+           // }
 
         }
     }
