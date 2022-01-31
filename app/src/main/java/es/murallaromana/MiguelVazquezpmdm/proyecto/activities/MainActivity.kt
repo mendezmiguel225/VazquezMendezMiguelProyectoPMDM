@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.edit
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
 import es.murallaromana.MiguelVazquezpmdm.proyecto.databinding.ActivityMainBinding
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.dao.retrofit.ServicioApi
+import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Pelicula
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.Token
 import es.murallaromana.MiguelVazquezpmdm.proyecto.model.entidades.User
 import retrofit2.Call
@@ -23,16 +25,51 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTitle("Login")
-        super.onCreate(savedInstanceState)
-        val shared:SharedPreferences=getSharedPreferences("datos", MODE_PRIVATE)
-        val autenticacion = shared.getString("token", "")
-        if(autenticacion!=""){
-          val intent = Intent(this@MainActivity, ListaPeliculasActivity::class.java)
-           startActivity(intent)
-            finish()
-         }else {
 
+
+        //RETROFIT
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://damapi.herokuapp.com/api/v1/")
+            .build()
+        val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
+
+        super.onCreate(savedInstanceState)
+        //AUTENTICACIÓN DE TOKEN AL INICIAR LA APLICACIÓN
+        val shared: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
+        var autenticacion = shared.getString("token","").toString()
+
+        if (autenticacion!="") {
+            val getAllCall = servicio.getAll("Bearer " + autenticacion)
+            getAllCall.enqueue(object : Callback<List<Pelicula>> {
+                override fun onResponse(
+                    call: Call<List<Pelicula>>,
+                    response: Response<List<Pelicula>>
+                ) {
+                    if (response.isSuccessful) {
+                        val intent =
+                            Intent(this@MainActivity, ListaPeliculasActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "No se ha podido acceder a la lista de películas",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        shared.edit().clear().commit()
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
+                    Log.d("respuesta: onFailure", t.toString())
+                }
+            })
+
+        } else {
+            //LOGIN
+            setTitle("Login")
             setContentView(R.layout.activity_main)
 
             binding = ActivityMainBinding.inflate(layoutInflater)
@@ -42,26 +79,9 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, RegistroActivity::class.java)
                 startActivity(intent)
             }
-            val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://damapi.herokuapp.com/api/v1/")
-                .build()
-            val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
+
             binding.bttSiguiente.setOnClickListener {
-                /*
-            *  val sharedPref: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
-            val contra = sharedPref.getString("contraseña", "datos")
-            val email = sharedPref.getString("email", "datos")
-            if (email != binding.tiEmail.text.toString().trim()) {
-                Toast.makeText(this, "Email incorrecto", Toast.LENGTH_SHORT).show()
-            } else if (contra != binding.tiContrasenha.text.toString().trim()) {
-                Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
-            } else {
-                val intent = Intent(this, ListaPeliculasActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-            * */
+
                 val u = User(binding.tiEmail.text.toString(), binding.tiContrasenha.text.toString())
                 val loginCall = servicio.login(u)
 
@@ -101,7 +121,6 @@ class MainActivity : AppCompatActivity() {
                 })
 
             }
-
 
         }
 
