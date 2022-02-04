@@ -17,4 +17,7 @@ interface ServicioApi {
 
     @POST("users/signup")
     fun signUp(@Body user: User):Call<Unit>
+
+    @POST("movies")
+    fun create(@Body pelicula: Pelicula):Call<Unit>
 }

@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        super.onCreate(savedInstanceState)
 
         //RETROFIT
         val retrofit = Retrofit.Builder()
@@ -34,13 +34,12 @@ class MainActivity : AppCompatActivity() {
             .build()
         val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
 
-        super.onCreate(savedInstanceState)
         //AUTENTICACIÓN DE TOKEN AL INICIAR LA APLICACIÓN
         val shared: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
         var autenticacion = shared.getString("token","").toString()
 
         if (autenticacion!="") {
-            val getAllCall = servicio.getAll("Bearer " + autenticacion)
+            val getAllCall = servicio.getAll("Bearer "+autenticacion)
             getAllCall.enqueue(object : Callback<List<Pelicula>> {
                 override fun onResponse(
                     call: Call<List<Pelicula>>,
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
                         val intent =
-                            Intent(this@MainActivity, ListaPeliculasActivity::class.java)
+                            Intent(this@MainActivity,ListaPeliculasActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
@@ -68,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             })
 
         } else {
+
             //LOGIN
             setTitle("Login")
             setContentView(R.layout.activity_main)
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                             var editor = sharedPref.edit()
                             editor.putString("token", token).commit()
                             val intent =
-                                Intent(this@MainActivity, ListaPeliculasActivity::class.java)
+                                Intent(this@MainActivity,RegistroActivity::class.java)
                             startActivity(intent)
                             finish()
                         }
