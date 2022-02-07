@@ -24,7 +24,7 @@ class PantallaDetalleActivity : AppCompatActivity() {
         setTitle(p.title)
         Picasso.get().load(p.imageUrl).into(binding.ivImagen)
         binding.etDetalleGenero2.setText(p.genre)
-        binding.etDetalleDirector2.setText(p.directorFirstName)
+        binding.etDetalleDirector2.setText(p.directorFullname)
         binding.etDetalleTitulo2.setText(p.title)
         //binding.etDetalleValoracion2.setText(p.valoracion)
         binding.etDetalleNumero2.setText(p.directorPhone)

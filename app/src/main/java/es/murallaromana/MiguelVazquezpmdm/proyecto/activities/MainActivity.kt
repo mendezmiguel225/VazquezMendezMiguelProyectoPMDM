@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         shared.edit().clear().commit()
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK) )
                     }
                 }
 
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                             var editor = sharedPref.edit()
                             editor.putString("token", token).commit()
                             val intent =
-                                Intent(this@MainActivity,RegistroActivity::class.java)
+                                Intent(this@MainActivity,ListaPeliculasActivity::class.java)
                             startActivity(intent)
                             finish()
                         }

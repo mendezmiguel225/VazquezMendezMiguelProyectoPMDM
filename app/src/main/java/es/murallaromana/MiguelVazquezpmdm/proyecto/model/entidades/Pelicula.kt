@@ -4,12 +4,12 @@ import java.io.Serializable
 
 
 class Pelicula (
-    var id:String,
+    var id:String?,
     var title :String,
     var rating: Number,
     var runtimeMinutes: Int,
     var genre: String,
-    var directorFirstName : String,
+    var directorFullname : String,
     var imageUrl : String,
     var directorPhone:String
 ):Serializable{}

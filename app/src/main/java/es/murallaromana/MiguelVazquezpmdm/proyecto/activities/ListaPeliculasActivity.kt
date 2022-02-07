@@ -38,22 +38,23 @@ class ListaPeliculasActivity : AppCompatActivity() {
 
         val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
         val shared: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
-        val getAllCall = servicio.getAll("Bearer "+shared.getString("token","").toString())
+        val getAllCall = servicio.getAll("Bearer " + shared.getString("token", "").toString())
         getAllCall.enqueue(object : Callback<List<Pelicula>> {
             override fun onResponse(
                 call: Call<List<Pelicula>>,
                 response: Response<List<Pelicula>>
             ) {
                 if (response.isSuccessful) {
-                   var peliculas=response.body()!!
+                    var peliculas = response.body()!!
                     val layoutManager = GridLayoutManager(this@ListaPeliculasActivity, 2)
 
-                    val adapter = ListaPeliculasAdapter(this@ListaPeliculasActivity,peliculas)
+                    val adapter = ListaPeliculasAdapter(this@ListaPeliculasActivity, peliculas)
                     binding.rvListaPeliculas.adapter = adapter
                     binding.rvListaPeliculas.layoutManager = layoutManager
                     val dividerItemDecoration = DividerItemDecoration(
                         binding.rvListaPeliculas.context,
-                        layoutManager.orientation)
+                        layoutManager.orientation
+                    )
                 } else {
                     Toast.makeText(
                         this@ListaPeliculasActivity,
@@ -86,16 +87,16 @@ class ListaPeliculasActivity : AppCompatActivity() {
 
         val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
         val shared: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
-        val getAllCall = servicio.getAll("Bearer "+shared.getString("token","").toString())
+        val getAllCall = servicio.getAll("Bearer " + shared.getString("token", "").toString())
         getAllCall.enqueue(object : Callback<List<Pelicula>> {
             override fun onResponse(
                 call: Call<List<Pelicula>>,
                 response: Response<List<Pelicula>>
             ) {
                 if (response.isSuccessful) {
-                    var peliculas=response.body()!!
+                    var peliculas = response.body()!!
                     val layoutManager = GridLayoutManager(this@ListaPeliculasActivity, 2)
-                    val adapter = ListaPeliculasAdapter(this@ListaPeliculasActivity,peliculas)
+                    val adapter = ListaPeliculasAdapter(this@ListaPeliculasActivity, peliculas)
                     binding.rvListaPeliculas.adapter = adapter
                     binding.rvListaPeliculas.layoutManager = layoutManager
 
