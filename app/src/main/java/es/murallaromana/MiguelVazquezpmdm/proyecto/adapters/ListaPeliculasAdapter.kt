@@ -29,7 +29,7 @@ class ListaPeliculasAdapter (val activity:Activity, var peliculas:List<Pelicula>
         Picasso.get().load(pelicula.imageUrl).into(holder.ivFoto)
         holder.clItemPelicula.setOnClickListener {
             val intent= Intent(activity, PantallaDetalleActivity::class.java)
-            intent.putExtra("pelicula",pelicula )
+            intent.putExtra("id",pelicula.id )
             activity.startActivity(intent)
         }
 

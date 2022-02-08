@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         shared.edit().clear().commit()
+
                         startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK) )
                     }
                 }

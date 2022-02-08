@@ -51,7 +51,7 @@ class NuevaPeliculaActivity : AppCompatActivity() {
                 val pelicula:Pelicula= Pelicula(null,
                     binding.tiTitulo.text.toString(),
                     binding.tiValoracion.text.toString().toInt(),
-                    binding.tiDuracion.text.toString().toInt(),
+                    binding.tiDuracion.text.toString().toDouble(),
                     binding.tiGenero.text.toString(),
                     binding.tiDirector.text.toString(),
                     binding.tiURL.text.toString(),
