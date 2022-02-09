@@ -32,7 +32,7 @@ class PantallaDetalleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_detalle)
         binding = ActivityPantallaDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var p: Pelicula
+        var p: Pelicula?=null
         //RETROFIT
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -46,13 +46,14 @@ class PantallaDetalleActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>) {
                 if (response.isSuccessful) {
                     p = response.body()!!
-                    setTitle(p.title)
-                    Picasso.get().load(p.imageUrl).into(binding.ivImagen)
-                    binding.etDetalleGenero2.setText(p.genre)
-                    binding.etDetalleDirector2.setText(p.directorFullname)
-                    binding.etDetalleTitulo2.setText(p.title)
-                    binding.etDetalleValoracion2.setText(p.rating.toString())
-                    binding.etDetalleNumero2.setText(p.directorPhone)
+                    setTitle(p!!.title)
+                    Picasso.get().load(p!!.imageUrl).into(binding.ivImagen)
+                    binding.etDetalleGenero2.setText(p!!.genre)
+                    binding.etDetalleDirector2.setText(p!!.directorFullname)
+                    binding.etDetalleTitulo2.setText(p!!.title)
+                    binding.etDetalleValoracion2.setText(p!!.rating.toString())
+                    binding.etDetalleNumero2.setText(p!!.directorPhone)
+                    binding.etDuracion.setText(p!!.runtimeMinutes.toString())
                 } else {
                     Toast.makeText(
                         this@PantallaDetalleActivity,
@@ -82,6 +83,7 @@ class PantallaDetalleActivity : AppCompatActivity() {
             binding.etDetalleDirector2.isEnabled = false
             binding.etDetalleTitulo2.isEnabled = false
             binding.etDetalleValoracion2.isEnabled = false
+            binding.etDuracion.isEnabled=false
             binding.etDetalleNumero2.isEnabled = false
             binding.bttCorrecto.isVisible = false
             binding.bttAtras.isVisible = false
@@ -93,27 +95,37 @@ class PantallaDetalleActivity : AppCompatActivity() {
                     .trim() == "" || binding.etDetalleTitulo2.text.toString().trim() == "" ||
                 binding.etDetalleValoracion2.text.toString()
                     .trim() == "" || binding.etDetalleNumero2.text.toString()
-                    .trim() == ""
+                    .trim() == ""|| binding.etDuracion.text.toString().trim()==""
             ) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                /**
-                MiApp.peliculas.get(p.id).directorFirstName =
-                binding.etDetalleDirector2.text.toString().trim()
-                MiApp.peliculas.get(p.id).title=
-                binding.etDetalleTitulo2.text.toString().trim()
-                //MiApp.peliculas.get(p.id).valoracion =
-                //  binding.etDetalleValoracion2.text.toString().trim()
-                MiApp.peliculas.get(p.id).genre =
-                binding.etDetalleGenero2.text.toString().trim()
-                MiApp.peliculas.get(p.id).directorFirstName =
-                binding.etDetalleNumero2.text.toString().trim()
-                Toast.makeText(this, "Película editada correctamente.", Toast.LENGTH_SHORT)
-                .show()
-                finish()
+                p!!.genre= binding.etDetalleGenero2.text.toString()
+                p!!.directorFullname=binding.etDetalleDirector2.text.toString()
+                p!!.title=binding.etDetalleTitulo2.text.toString()
+                p!!.rating=binding.etDetalleValoracion2.text.toString().toDouble()
+                p!!.directorPhone=binding.etDetalleNumero2.text.toString()
+                p!!.runtimeMinutes=binding.etDuracion.text.toString().toDouble()
+
+                val update = servicio.update(id,"Bearer "+shared.getString("token", "").toString(),p!!)
+                update.enqueue(object : Callback<Unit>{
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                        if(response.isSuccessful){
+                            Toast.makeText(this@PantallaDetalleActivity, "Película actualizada", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }else{
+                            Toast.makeText(this@PantallaDetalleActivity, "No se pudo actualizar", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        Log.d("respuesta: onFailure", t.toString())
+                    }
+
+                })
                 }
-                 **/
-            }
+
+
 
 
         }

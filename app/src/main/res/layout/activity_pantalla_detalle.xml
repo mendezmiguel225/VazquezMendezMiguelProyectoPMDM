@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,17 +8,22 @@
     android:padding="16dp"
     tools:context=".activities.PantallaDetalleActivity"
     >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
 
   <Button
       android:id="@+id/bttAtras"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
       android:text="Cancelar"
       android:visibility="invisible"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@+id/guideline11"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvDetalleNumero" />
+      app:layout_constraintTop_toBottomOf="parent" />
 
   <Button
       android:id="@+id/bttCorrecto"
@@ -72,7 +78,8 @@
       android:layout_marginTop="@dimen/margen_Detalle_textView"
       android:enabled="false"
       android:text="TextView"
-      android:textSize="16dp"
+      android:textSize="16sp"
+      android:inputType="number"
       app:layout_constraintStart_toStartOf="@+id/guideline7"
       app:layout_constraintTop_toBottomOf="@+id/etDetalleDirector2" />
 
@@ -82,7 +89,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="50dp"
       android:enabled="false"
-      android:textSize="16dp"
+      android:textSize="16sp"
       android:text="TextView"
       app:layout_constraintStart_toStartOf="@+id/guideline7"
       app:layout_constraintTop_toBottomOf="@+id/ivImagen" />
@@ -102,7 +109,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="TÍtulo: "
-      android:textSize="16dp"
+      android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleTitulo2"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleTitulo2" />
@@ -112,7 +119,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Género: "
-      android:textSize="16dp"
+      android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleGenero2"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleGenero2" />
@@ -122,7 +129,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Director: "
-      android:textSize="16dp"
+      android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleDirector2"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleDirector2"
@@ -133,7 +140,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Valoración: "
-      android:textSize="16dp"
+      android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleValoracion2"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleValoracion2" />
@@ -143,7 +150,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Número del director"
-      android:textSize="16dp"
+      android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="@+id/etDetalleNumero2"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/etDetalleNumero2" />
@@ -162,5 +169,27 @@
       android:orientation="vertical"
       app:layout_constraintGuide_percent="0.5" />
 
+  <TextView
+
+      android:id="@+id/tvDuracion"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Duración"
+      app:layout_constraintBottom_toBottomOf="@+id/etDuracion"
+      app:layout_constraintStart_toStartOf="parent"
+      android:textSize="16sp"
+      app:layout_constraintTop_toTopOf="@+id/etDuracion" />
+
+  <EditText
+      android:id="@+id/etDuracion"
+      android:layout_width="wrap_content"
+      android:hint="Duración"
+      android:textSize="16sp"
+      android:inputType="number"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="@+id/guideline7"
+      app:layout_constraintTop_toBottomOf="@+id/etDetalleNumero2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
