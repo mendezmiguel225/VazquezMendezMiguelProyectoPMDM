@@ -48,12 +48,15 @@ class PantallaDetalleActivity : AppCompatActivity() {
                     p = response.body()!!
                     setTitle(p.title)
                     Picasso.get().load(p.imageUrl).into(binding.ivImagen)
-                    binding.etDetalleGenero2.setText(p.genre)
-                    binding.etDetalleDirector2.setText(p.directorFullname)
-                    binding.etDetalleTitulo2.setText(p.title)
-                    binding.etDetalleValoracion2.setText(p.rating.toString())
-                    binding.etDetalleNumero2.setText(p.directorPhone)
-                    binding.etDuracion.setText(p.runtimeMinutes.toString())
+                    binding.tvDetalleGenero2.setText(p.genre)
+                    binding.tvDetalleDirector2.setText(p.directorFullname)
+                    binding.tvDetalleTitulo2.setText(p.title)
+                    if(p.rating==null){
+                        p.rating=0
+                    }
+                    binding.tvDetalleValoracion2.setText(p.rating.toString())
+                    binding.tvDetalleNumero2.setText(p.directorPhone)
+                    binding.tvDetalleDuracion2.setText(p.runtimeMinutes.toString())
                 } else {
                     Toast.makeText(
                         this@PantallaDetalleActivity,
@@ -71,70 +74,70 @@ class PantallaDetalleActivity : AppCompatActivity() {
         })
 
         binding.tvDetalleNumero.setOnClickListener() {
-            if (binding.etDetalleNumero2.isEnabled == false) {
+            if (binding.tvDetalleNumero2.isEnabled == false) {
                 var i = Intent(Intent.ACTION_CALL)
-                i.setData(Uri.parse("tel:" + binding.etDetalleNumero2.text.toString().trim()))
+                i.setData(Uri.parse("tel:" + binding.tvDetalleNumero2.text.toString().trim()))
                 startActivity(i)
             }
 
         }
 
     }
-        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar_botones, menu)
 
         return true
-        }
+    }
 
-        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-        R.id.action_edit -> {
-            val intent =
-                Intent(this,NuevaPeliculaActivity::class.java)
-            intent.putExtra("id",id)
-            startActivity(intent)
-            finish()
-        true
+            R.id.action_edit -> {
+                val intent =
+                    Intent(this,NuevaPeliculaActivity::class.java)
+                intent.putExtra("id",id)
+                startActivity(intent)
+                finish()
+                true
 
-        }
+            }
 
-        R.id.action_delete -> {
-        val builder = AlertDialog.Builder(this)
+            R.id.action_delete -> {
+                val builder = AlertDialog.Builder(this)
 
-        builder.setTitle("Eliminar película")
-        .setMessage("La película seleccionada va a ser eliminada, ¿está seguro?")
-        .setPositiveButton("Aceptar") { _, _ ->
-            //RETROFIT
-            val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://damapi.herokuapp.com/api/v1/")
-                .build()
-            val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
-            val shared: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
-            val delete=servicio.delete(id, "Bearer "+shared.getString("token","").toString())
-            delete.enqueue(object: Callback<Unit>{
-                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                    if(response.isSuccessful){
-                        Toast.makeText(this@PantallaDetalleActivity, "Película eliminada.", Toast.LENGTH_SHORT).show()
-                        finish()
-                    }else{
-                        Toast.makeText(this@PantallaDetalleActivity, "No se ha podido eliminar la película", Toast.LENGTH_SHORT).show()
-                        finish()
-                    }
+                builder.setTitle("Eliminar película")
+                    .setMessage("La película seleccionada va a ser eliminada, ¿está seguro?")
+                    .setPositiveButton("Aceptar") { _, _ ->
+                        //RETROFIT
+                        val retrofit = Retrofit.Builder()
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .baseUrl("https://damapi.herokuapp.com/api/v1/")
+                            .build()
+                        val servicio: ServicioApi = retrofit.create(ServicioApi::class.java)
+                        val shared: SharedPreferences = getSharedPreferences("datos", MODE_PRIVATE)
+                        val delete=servicio.delete(id, "Bearer "+shared.getString("token","").toString())
+                        delete.enqueue(object: Callback<Unit>{
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                                if(response.isSuccessful){
+                                    Toast.makeText(this@PantallaDetalleActivity, "Película eliminada.", Toast.LENGTH_SHORT).show()
+                                    finish()
+                                }else{
+                                    Toast.makeText(this@PantallaDetalleActivity, "No se ha podido eliminar la película", Toast.LENGTH_SHORT).show()
+                                    finish()
+                                }
 
-                }
+                            }
 
-                override fun onFailure(call: Call<Unit>, t: Throwable) {
-                    Log.d("respuesta: onFailure", t.toString())
-                }
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Log.d("respuesta: onFailure", t.toString())
+                            }
 
-            })
+                        })
 
-        }.setNegativeButton("Cancelar", null)
-        .show()
-        true
-        }
-        else -> super.onOptionsItemSelected(item)
+                    }.setNegativeButton("Cancelar", null)
+                    .show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
 
     }
