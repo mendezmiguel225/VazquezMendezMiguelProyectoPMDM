@@ -77,31 +77,32 @@ class MainActivity : AppCompatActivity() {
             setContentView(binding.root)
 
             binding.bttRegistro.setOnClickListener {
+                binding.bttRegistro.isEnabled=false
                 val intent = Intent(this, RegistroActivity::class.java)
                 startActivity(intent)
             }
 
             binding.bttSiguiente.setOnClickListener {
-
+                binding.bttSiguiente.isEnabled=false
                 val u = User(binding.tiEmail.text.toString(), binding.tiContrasenha.text.toString())
                 val loginCall = servicio.login(u)
-
                 loginCall.enqueue(object : Callback<Token> {
                     override fun onResponse(call: Call<Token>, response: Response<Token>) {
                         if (!response.isSuccessful) {
+
                             Toast.makeText(
                                 this@MainActivity,
-                                "No se ha podido crear el usuario",
+                                "No se ha podido iniciar sesión",
                                 Toast.LENGTH_SHORT
                             ).show()
-
+                            binding.bttSiguiente.isEnabled=true
                         } else {
                             val token = response.body()?.token
                             Log.d("respuesta: token:", token.orEmpty())
 
                             Toast.makeText(
                                 this@MainActivity,
-                                "se ha creado el usuario",
+                                "se ha iniciado sesión",
                                 Toast.LENGTH_SHORT
                             )
                                 .show()

@@ -37,6 +37,7 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(binding.root)
         val pattern = Patterns.EMAIL_ADDRESS
         binding.bttConfirmar.setOnClickListener {
+            binding.bttConfirmar.isEnabled=false
             val user = User(binding.tiCorreo.text.toString(), binding.tiClave.text.toString())
 
             val retrofit = Retrofit.Builder()
@@ -57,6 +58,7 @@ class RegistroActivity : AppCompatActivity() {
                             "No se pudo crear el usuario",
                             Toast.LENGTH_SHORT
                         ).show()
+                        binding.bttConfirmar.isEnabled=true
                     } else {
                         Toast.makeText(this@RegistroActivity, "Usuario creado", Toast.LENGTH_SHORT)
                             .show()

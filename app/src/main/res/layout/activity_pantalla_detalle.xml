@@ -12,33 +12,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
   >
-
-  <Button
-      android:id="@+id/bttAtras"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="20dp"
-      android:text="Cancelar"
-      android:visibility="invisible"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/guideline11"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="parent" />
-
-  <Button
-      android:id="@+id/bttCorrecto"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
-      android:text="Confirmar"
-      android:visibility="invisible"
-      app:layout_constraintBottom_toBottomOf="@+id/bttAtras"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.414"
-      app:layout_constraintStart_toStartOf="@+id/guideline11"
-      app:layout_constraintTop_toTopOf="@+id/bttAtras"
-      app:layout_constraintVertical_bias="0.0" />
-
   <EditText
       android:id="@+id/etDetalleNumero2"
       android:layout_width="wrap_content"

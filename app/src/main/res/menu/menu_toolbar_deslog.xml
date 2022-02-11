@@ -2,8 +2,10 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item"
-        android:icon="@drawable/ic_android_black_24dp"
+    <item android:title="Cerrar sesión"
+        android:icon="@drawable/ic_baseline_account_circle_24"
         app:showAsAction="ifRoom"
-        android:id="@+id/action_deslog"/>
+        android:id="@+id/action_deslog"
+        />
+
 </menu>

@@ -27,9 +27,9 @@ interface ServicioApi {
     @DELETE("movies/{id}")
     fun delete(@Path("id") id: String, @Header("Authorization") token: String): Call<Unit>
 
-    @PUT("movies/{id}")
+    @PUT("movies/")
     fun update(
-        @Path("id") id: String, @Header("Authorization") token: String,
+        @Header("Authorization") token: String,
         @Body pelicula: Pelicula
     ): Call<Unit>
 }

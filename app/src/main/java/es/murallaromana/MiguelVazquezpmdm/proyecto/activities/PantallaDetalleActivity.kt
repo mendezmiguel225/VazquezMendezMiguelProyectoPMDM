@@ -32,7 +32,7 @@ class PantallaDetalleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_detalle)
         binding = ActivityPantallaDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var p: Pelicula?=null
+        var p: Pelicula
         //RETROFIT
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -46,14 +46,14 @@ class PantallaDetalleActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>) {
                 if (response.isSuccessful) {
                     p = response.body()!!
-                    setTitle(p!!.title)
-                    Picasso.get().load(p!!.imageUrl).into(binding.ivImagen)
-                    binding.etDetalleGenero2.setText(p!!.genre)
-                    binding.etDetalleDirector2.setText(p!!.directorFullname)
-                    binding.etDetalleTitulo2.setText(p!!.title)
-                    binding.etDetalleValoracion2.setText(p!!.rating.toString())
-                    binding.etDetalleNumero2.setText(p!!.directorPhone)
-                    binding.etDuracion.setText(p!!.runtimeMinutes.toString())
+                    setTitle(p.title)
+                    Picasso.get().load(p.imageUrl).into(binding.ivImagen)
+                    binding.etDetalleGenero2.setText(p.genre)
+                    binding.etDetalleDirector2.setText(p.directorFullname)
+                    binding.etDetalleTitulo2.setText(p.title)
+                    binding.etDetalleValoracion2.setText(p.rating.toString())
+                    binding.etDetalleNumero2.setText(p.directorPhone)
+                    binding.etDuracion.setText(p.runtimeMinutes.toString())
                 } else {
                     Toast.makeText(
                         this@PantallaDetalleActivity,
@@ -78,57 +78,6 @@ class PantallaDetalleActivity : AppCompatActivity() {
             }
 
         }
-        binding.bttAtras.setOnClickListener() {
-            binding.etDetalleGenero2.isEnabled = false
-            binding.etDetalleDirector2.isEnabled = false
-            binding.etDetalleTitulo2.isEnabled = false
-            binding.etDetalleValoracion2.isEnabled = false
-            binding.etDuracion.isEnabled=false
-            binding.etDetalleNumero2.isEnabled = false
-            binding.bttCorrecto.isVisible = false
-            binding.bttAtras.isVisible = false
-            binding.ivImagen.isVisible = true
-        }
-        binding.bttCorrecto.setOnClickListener() {
-            if (binding.etDetalleGenero2.text.toString()
-                    .trim() == "" || binding.etDetalleDirector2.text.toString()
-                    .trim() == "" || binding.etDetalleTitulo2.text.toString().trim() == "" ||
-                binding.etDetalleValoracion2.text.toString()
-                    .trim() == "" || binding.etDetalleNumero2.text.toString()
-                    .trim() == ""|| binding.etDuracion.text.toString().trim()==""
-            ) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else {
-                p!!.genre= binding.etDetalleGenero2.text.toString()
-                p!!.directorFullname=binding.etDetalleDirector2.text.toString()
-                p!!.title=binding.etDetalleTitulo2.text.toString()
-                p!!.rating=binding.etDetalleValoracion2.text.toString().toDouble()
-                p!!.directorPhone=binding.etDetalleNumero2.text.toString()
-                p!!.runtimeMinutes=binding.etDuracion.text.toString().toDouble()
-
-                val update = servicio.update(id,"Bearer "+shared.getString("token", "").toString(),p!!)
-                update.enqueue(object : Callback<Unit>{
-                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                        if(response.isSuccessful){
-                            Toast.makeText(this@PantallaDetalleActivity, "Película actualizada", Toast.LENGTH_SHORT).show()
-                            finish()
-                        }else{
-                            Toast.makeText(this@PantallaDetalleActivity, "No se pudo actualizar", Toast.LENGTH_SHORT).show()
-                            finish()
-                        }
-                    }
-
-                    override fun onFailure(call: Call<Unit>, t: Throwable) {
-                        Log.d("respuesta: onFailure", t.toString())
-                    }
-
-                })
-                }
-
-
-
-
-        }
 
     }
         override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -140,16 +89,11 @@ class PantallaDetalleActivity : AppCompatActivity() {
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
         R.id.action_edit -> {
-        binding.etDetalleGenero2.isEnabled = true
-        binding.etDetalleDirector2.isEnabled = true
-        binding.etDetalleTitulo2.isEnabled = true
-        binding.etDetalleValoracion2.isEnabled = true
-        binding.etDetalleNumero2.isEnabled = true
-        binding.bttCorrecto.isVisible = true
-        binding.bttAtras.isVisible = true
-
-        binding.ivImagen.isVisible = false
-
+            val intent =
+                Intent(this,NuevaPeliculaActivity::class.java)
+            intent.putExtra("id",id)
+            startActivity(intent)
+            finish()
         true
 
         }

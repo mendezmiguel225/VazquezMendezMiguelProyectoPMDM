@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import es.murallaromana.MiguelVazquezpmdm.proyecto.R
@@ -73,6 +75,7 @@ class ListaPeliculasActivity : AppCompatActivity() {
 
         binding.fabEngadir.setOnClickListener {
             val intent = Intent(this, NuevaPeliculaActivity::class.java)
+            intent.putExtra("id","")
             startActivity(intent)
         }
 
@@ -120,5 +123,27 @@ class ListaPeliculasActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_toolbar_deslog, menu)
         return true
     }
-}
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_deslog -> {
+                val builder = AlertDialog.Builder(this)
+
+                builder.setTitle("Cerrar sesión")
+                    .setMessage("Se cerrara la sesión actual, ¿está seguro?")
+                    .setPositiveButton("Aceptar") { _, _ ->
+                        val shared: SharedPreferences= getSharedPreferences("datos", MODE_PRIVATE)
+                        shared.edit().clear().commit()
+                        val intent = Intent(this,MainActivity::class.java )
+                        startActivity(intent)
+                        finish()
+
+            }.setNegativeButton("Cancelar", null)
+                    .show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        }
+    }
 
