@@ -10,10 +10,11 @@
 
 
 ## Login
-![Login](imagenes/lista.png)
+![Login](imagenes/login.png)
 
 ## Registro
-
+![Registro](imagenes/registro.png)
 
 ## Lista de películas
 
+![Lista](imagenes/lista.png)
