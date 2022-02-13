@@ -10,7 +10,7 @@
 
 
 ## Login
-![Login](..\imagenes\lista.png)
+![Login](imagenes/lista.png)
 
 ## Registro
 
