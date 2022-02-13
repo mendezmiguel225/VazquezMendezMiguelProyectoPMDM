@@ -55,6 +55,9 @@ class PantallaDetalleActivity : AppCompatActivity() {
                         p.rating=0
                     }
                     binding.tvDetalleValoracion2.setText(p.rating.toString())
+                    if(p.runtimeMinutes==null){
+                        p.runtimeMinutes=0.0
+                    }
                     binding.tvDetalleNumero2.setText(p.directorPhone)
                     binding.tvDetalleDuracion2.setText(p.runtimeMinutes.toString())
                 } else {

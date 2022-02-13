@@ -5,21 +5,15 @@
 - Login
 - Registro
 - Lista de películas
-- Detalle y edición de las películas
+- Detalle de la película
 - Creación de peliculas
 
 
 ## Login
-
+![Login](..\imagenes\lista.png)
 
 ## Registro
 
 
 ## Lista de películas
 
-
-## Detalle y edición de las películas
-
-
-
-## Creación de peliculas

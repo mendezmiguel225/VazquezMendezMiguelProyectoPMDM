@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margen_Detalle_textView">20dp</dimen>
+    <dimen name="margen_padding_simple">16dp</dimen>
+    <dimen name="tamaño">0dp</dimen>
+    <dimen name="login_margin">32dp</dimen>
+    <dimen name="titulo_tamaño">40sp</dimen>
+    <dimen name="login_margin_top_botones">60dp</dimen>
 </resources>

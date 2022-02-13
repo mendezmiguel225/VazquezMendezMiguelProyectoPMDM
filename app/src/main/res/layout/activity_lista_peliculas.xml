@@ -5,15 +5,15 @@
     android:id="@+id/clPeliculas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/margen_padding_simple"
     android:background="@color/blue_2"
     tools:context=".activities.ListaPeliculasActivity"
     >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lista_peliculas"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/tamaño"
+        android:layout_height="@dimen/tamaño"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/margen_padding_simple"
         app:backgroundTint="@color/blue_1"
         android:src="@drawable/ic_baseline_add_25"
         android:tint="@color/white"

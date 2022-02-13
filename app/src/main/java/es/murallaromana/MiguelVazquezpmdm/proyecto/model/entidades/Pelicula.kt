@@ -7,8 +7,8 @@ import java.io.Serializable
 class Pelicula (
     var id:String?,
     var title :String,
-    var rating: Number,
-    var runtimeMinutes: Double,
+    var rating: Number?,
+    var runtimeMinutes: Double?,
     var genre: String,
     var directorFullname : String,
     var imageUrl : String,

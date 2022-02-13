@@ -75,9 +75,7 @@ class MainActivity : AppCompatActivity() {
 
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
-
             binding.bttRegistro.setOnClickListener {
-                binding.bttRegistro.isEnabled=false
                 val intent = Intent(this, RegistroActivity::class.java)
                 startActivity(intent)
             }
